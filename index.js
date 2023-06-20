@@ -65,6 +65,7 @@ app.get("/products", async (req, res) => {
     const exchangeRate = await getExchangeRate(currencyCode);
     const afterPriceChange = convertingPrice(data, exchangeRate);
     const afterCatergorization = categorize(afterPriceChange);
+    console.log("Final Output:", afterCatergorization);
     res.json(afterCatergorization);
   } catch (error) {
     console.error("error occurred:", error);
